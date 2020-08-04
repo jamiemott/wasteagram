@@ -8,9 +8,7 @@ class App extends StatelessWidget {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Wasteagram',
-        theme: ThemeData(
-          primarySwatch: Colors.indigo
-        ),
+        theme: ThemeData(primarySwatch: Colors.indigo),
         home: ListScreen()
     );
   }

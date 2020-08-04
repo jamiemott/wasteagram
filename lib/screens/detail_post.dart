@@ -1,6 +1,7 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:intl/intl.dart';
+import 'package:wasteagram/widgets/image_display.dart';
 
 class DetailPost extends StatelessWidget {
   DocumentSnapshot post;
@@ -12,7 +13,8 @@ class DetailPost extends StatelessWidget {
     DateTime time = post['date'].toDate();
     return Scaffold(
         appBar: AppBar(
-          title: Center(child: Text('Wasteagram')),
+          centerTitle: true,
+          title: Text('Wasteagram')
         ),
         body: Center(
             child: Padding(
@@ -24,21 +26,15 @@ class DetailPost extends StatelessWidget {
                     Text('${DateFormat.yMMMMEEEEd().format(time)}',
                         style: TextStyle(
                             fontSize: 25, fontWeight: FontWeight.bold)),
-                    Container(
-                        width: MediaQuery.of(context).size.height * 0.4,
-                        height: MediaQuery.of(context).size.height * 0.4,
-                        child: Semantics(
-                          image: true,
-                          label: 'Picture of items that were wasted',
-                          child: Image.network(
-                            post['imageURL'],
-                            fit: BoxFit.cover,
-                          ),
-                        )),
-                    Text(post['quantity'].toString()),
+                    ImageDisplay(url: post['imageURL']),
+                    Text("${post['quantity']} items", style: TextStyle(
+                      fontSize: 20)),
                     Text('Location: (${post['latitude'].toString()}, '
                         '${post['longitude'].toString()})')
                   ],
-                ))));
+                )
+            )
+        )
+    );
   }
 }

@@ -1,9 +1,9 @@
 import 'dart:io';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:path/path.dart' as Path;
+import 'package:wasteagram/widgets/custom_title.dart';
 import 'package:wasteagram/widgets/list_contents.dart';
 import 'new_entry_form.dart';
 
@@ -30,7 +30,7 @@ class _ListScreenState extends State<ListScreen> {
     return Scaffold(
         appBar: AppBar(
           centerTitle: true,
-          title: getTitle(),
+          title: CustomTitle(),
         ),
         body: ListContents(),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
@@ -46,25 +46,8 @@ class _ListScreenState extends State<ListScreen> {
                       context,
                       MaterialPageRoute(
                           builder: (context) => NewEntryForm(url)));
-                })));
-  }
-
-  //Add up the total items for appBar title
-  Widget getTitle() {
-    return StreamBuilder(
-      stream: Firestore.instance.collection('posts').snapshots(),
-      builder: (context, snapshot) {
-        if (!snapshot.hasData) {
-          return Text('Wasteagram');
-        } else {
-          //Set to zero so count is reset each time page changes, loop to add
-          int totalWasted = 0;
-          for (int i = 0; i < snapshot.data.documents.length; i++) {
-            totalWasted += snapshot.data.documents[i]['quantity'];
-          }
-          return Text('Wasteagram - $totalWasted');
-        }
-      },
+                })
+        )
     );
   }
 }
