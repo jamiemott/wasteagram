@@ -30,6 +30,7 @@ class _ListScreenState extends State<ListScreen> {
     return Scaffold(
         appBar: AppBar(
           centerTitle: true,
+          automaticallyImplyLeading: false,
           title: CustomTitle(),
         ),
         body: ListContents(),
@@ -45,7 +46,7 @@ class _ListScreenState extends State<ListScreen> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => NewEntryForm(url)));
+                          builder: (context) => NewEntryForm(url: url)));
                 })
         )
     );
