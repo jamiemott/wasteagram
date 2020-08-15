@@ -1,16 +1,12 @@
-# wasteagram
+# *Wasteagram*
 
-CS 492 Project 5
+**Wasteagram** is a mobile app created with Dart/Flutter that utilizes Firebase and Firestore to allow the creation of food waste posts, including an image, number of items, date and location.  The user can toggle between light and dark mode in the settings.
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+## Video Walkthrough
 
-A few resources to get you started if this is your first Flutter project:
+Here's a walkthrough:
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+<img src='walkthrough.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+GIF created with [LiceCap](http://www.cockos.com/licecap/).
