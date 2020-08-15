@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:wasteagram/app.dart';
 
 void main() async {
@@ -13,5 +14,6 @@ void main() async {
     DeviceOrientation.portraitUp,
   ]);
 
-  runApp(App());
+  //Get Shared preferences for theme mode
+  runApp(App(preferences: await SharedPreferences.getInstance()));
 }

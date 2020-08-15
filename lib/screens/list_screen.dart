@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:path/path.dart' as Path;
+import 'package:wasteagram/widgets/custom_drawer.dart';
 import 'package:wasteagram/widgets/custom_title.dart';
 import 'package:wasteagram/widgets/list_contents.dart';
 import 'new_entry_form.dart';
@@ -32,7 +33,12 @@ class _ListScreenState extends State<ListScreen> {
           centerTitle: true,
           automaticallyImplyLeading: false,
           title: CustomTitle(),
-        ),
+            actions: <Widget>[
+              Builder(builder: (context) =>
+                  IconButton(
+                      icon: Icon(Icons.settings),
+                      onPressed: () => Scaffold.of(context).openEndDrawer()))]),
+      endDrawer: CustomDrawer(),
         body: ListContents(),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
         floatingActionButton: Semantics(
